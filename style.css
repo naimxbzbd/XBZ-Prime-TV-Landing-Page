@@ -1,0 +1,150 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@300;500;700&display=swap');
+
+/* Reset and Base Styles */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+    background-color: #09090e;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: rgba(15, 15, 26, 0.95);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%; top: 0; left: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 28px; font-weight: 700; color: #fff; }
+.logo span { color: #ff0055; }
+.nav-menu a { font-size: 16px; margin-left: 25px; font-weight: 600; transition: 0.3s; }
+.nav-menu a:hover, .nav-menu a.active { color: #ff0055; }
+.menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+
+/* Hero Section */
+.hero-section { padding: 180px 0 100px 0; text-align: center; }
+.hero-content h1 { font-size: 48px; margin-bottom: 20px; line-height: 1.4; }
+.hero-content h1 span { background: linear-gradient(45deg, #ff0055, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-content p { color: #a0a0b8; max-width: 700px; margin: 0 auto 40px auto; font-size: 17px; line-height: 1.8; }
+
+/* Three Animated Glowing Buttons */
+.cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.glow-btn {
+    position: relative; width: 220px; height: 60px; display: flex; justify-content: center; align-items: center;
+    background: #000; border-radius: 50px; overflow: hidden; z-index: 1; transition: 0.3s;
+}
+.glow-btn:hover { transform: scale(1.03); }
+.glow-btn::before {
+    content: ''; position: absolute; width: 160%; height: 160%;
+    animation: rotateGlow 3s linear infinite; z-index: -2;
+}
+.download-btn::before { background: conic-gradient(#ff0055, #ff5500, transparent 60%); }
+.online-btn::before { background: conic-gradient(#00f2fe, #4facfe, transparent 60%); }
+.online2-btn::before { background: conic-gradient(#7f00ff, #e100ff, transparent 60%); }
+.glow-btn::after { content: ''; position: absolute; inset: 3px; background: #12121f; border-radius: 47px; z-index: -1; }
+.btn-text { font-weight: 600; display: flex; align-items: center; gap: 8px; font-size: 16px; }
+@keyframes rotateGlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Image Slider */
+.slider-section { padding: 40px 0; }
+.slider-wrapper { position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px #000; }
+.slider-container { display: flex; transition: 0.5s ease-in-out; }
+.slide { min-width: 100%; position: relative; }
+.slide img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.slide-caption { position: absolute; bottom: 0; width: 100%; background: linear-gradient(transparent, #000); padding: 35px 20px; text-align: center; font-size: 22px; font-weight: 600; }
+.slide-prev, .slide-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 15px 20px; cursor: pointer; border-radius: 50%; font-size: 18px; transition: 0.3s; }
+.slide-prev:hover, .slide-next:hover { background: #ff0055; }
+.slide-prev { left: 20px; } .slide-next { right: 20px; }
+
+/* Features Section */
+.features-section { padding: 80px 0; }
+.section-title { text-align: center; font-size: 36px; margin-bottom: 50px; font-weight: 700; }
+.section-title span { color: #ff0055; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.feature-card { background: #12121f; padding: 35px 25px; border-radius: 12px; text-align: center; border: 1px solid #ffffff08; transition: 0.3s; }
+.feature-card:hover { transform: translateY(-8px); border-color: rgba(255, 0, 85, 0.4); }
+.feature-card i { font-size: 40px; color: #ff0055; margin-bottom: 15px; }
+.feature-card h3 { font-size: 21px; margin-bottom: 10px; }
+.feature-card p { color: #a0a0b8; font-size: 15px; line-height: 1.6; }
+
+/* FAQ Section */
+.faq-section { padding: 80px 0; }
+.faq-accordion { max-width: 850px; margin: 0 auto; }
+.faq-item { background: #12121f; margin-bottom: 12px; border-radius: 8px; overflow: hidden; border: 1px solid #ffffff05; }
+.faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; transition: 0.3s; }
+.faq-question:hover { background: #1a1a2e; }
+.faq-question h3 { font-size: 17px; font-weight: 600; }
+.faq-question i { transition: transform 0.3s; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 20px; color: #a0a0b8; line-height: 1.7; font-size: 15px; }
+.faq-item.active .faq-answer { padding: 0 20px 20px 20px; }
+.faq-item.active .faq-question i { transform: rotate(180deg); color: #ff0055; }
+
+/* Integrated Contact Section */
+.home-contact { padding: 80px 0; background: #0c0c14; border-top: 1px solid #ffffff05; }
+.contact-wrapper { display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; }
+.contact-info, .contact-form-box { flex: 1; min-width: 320px; }
+.contact-info h3, .contact-form-box h3 { font-size: 24px; margin-bottom: 25px; color: #ff0055; border-left: 4px solid #ff0055; padding-left: 10px; }
+
+.info-list .info-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.info-item i { font-size: 20px; color: #00f2fe; background: #00f2fe1a; padding: 12px; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
+.info-item span { display: block; color: #a0a0b8; font-size: 14px; }
+.info-item p { font-size: 17px; font-weight: 500; margin-top: 2px; }
+.info-item p a:hover { color: #ff0055; }
+
+/* Developer Profiles Grid/Row */
+.dev-socials { margin-top: 35px; }
+.dev-socials h4 { margin-bottom: 15px; font-size: 16px; color: #a0a0b8; }
+.social-links { display: flex; gap: 15px; }
+.social-links a { font-size: 22px; background: #12121f; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; border: 1px solid #ffffff1a; }
+.social-links a:hover { background: #ff0055; transform: translateY(-5px); border-color: #ff0055; color: #fff; }
+
+/* Form Field Styling */
+.contact-form-box form { display: flex; flex-direction: column; gap: 15px; }
+.contact-form-box input, .contact-form-box textarea { width: 100%; padding: 15px; background: #12121f; border: 1px solid #ffffff1a; border-radius: 8px; color: #fff; font-family: inherit; font-size: 15px; outline: none; transition: 0.3s; }
+.contact-form-box input:focus, .contact-form-box textarea:focus { border-color: #ff0055; }
+.submit-btn { padding: 15px; background: linear-gradient(45deg, #ff0055, #ff5500); border: none; color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; border-radius: 8px; transition: 0.3s; }
+.submit-btn:hover { opacity: 0.95; }
+
+/* Footer Styling */
+footer { padding: 30px 0; text-align: center; border-top: 1px solid #ffffff0d; color: #707080; font-size: 15px; background: #05050a; }
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+    .hero-content h1 { font-size: 38px; }
+    .slide img { height: 360px; }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .nav-menu { position: absolute; top: 100%; left: -100%; width: 100%; background: #0f0f1a; flex-direction: column; text-align: center; padding: 20px 0; transition: 0.4s ease; border-bottom: 2px solid #ff0055; }
+    .nav-menu.active { left: 0; }
+    .nav-menu a { margin: 12px 0; display: block; font-size: 17px; }
+    .hero-content h1 { font-size: 32px; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .slide img { height: 260px; }
+    .slide-caption { font-size: 16px; }
+    .contact-wrapper { flex-direction: column; gap: 40px; }
+}
